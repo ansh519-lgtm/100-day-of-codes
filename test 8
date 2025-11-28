@@ -1,24 +1,51 @@
 #include <stdio.h>
-#include <math.h>
 
-int main(){
-    float principal, rate, time, simple_interest, compound_interest;
+int main() {
+    float num1, num2, result;
+    int choice;
 
-    printf ("Enter the principal amount: ");
-    scanf ("%f", &principal);
+    printf("--- Simple Calculator ---\n");
+    printf("1. Addition\n");
+    printf("2. Subtraction\n");
+    printf("3. Multiplication\n");
+    printf("4. Division\n");
+    printf("Enter your choice (1–4): ");
+    scanf("%d", &choice);
 
-    printf ("Enter the interest rate (in percentage): ");
-    scanf ("%f", &rate);
+    printf("Enter first number: ");
+    scanf("%f", &num1);
 
-    printf ("Enter the time period (in year): ");
-    scanf ("%f", &time);
+    printf("Enter second number: ");
+    scanf("%f", &num2);
 
-    simple_interest =( principal * rate * time ) / 100.0;
-    printf ("Simple interest= %.2f\n",simple_interest);
+    switch (choice) {
+        case 1:
+            result = num1 + num2;
+            printf("Result = %.2f\n", result);
+            break;
 
+        case 2:
+            result = num1 - num2;
+            printf("Result = %.2f\n", result);
+            break;
 
-    compound_interest = principal * pow (1 + rate / 100, time);
-    printf ("compound  interest: %.2f",compound_interest);
+        case 3:
+            result = num1 * num2;
+            printf("Result = %.2f\n", result);
+            break;
 
-return 0;
+        case 4:
+            if (num2 == 0) {
+                printf("Error! Division by zero is not allowed.\n");
+            } else {
+                result = num1 / num2;
+                printf("Result = %.2f\n", result);
+            }
+            break;
+
+        default:
+            printf("Invalid choice! Choose between 1–4.\n");
+    }
+
+    return 0;
 }
